@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>infobox show[one/Multiple]</title>
+<style>html,body{height:100%;}body{padding:0;margin:0;}h1{padding:0;margin:0;font-size:50%;}</style>
+</head>
+<body>
+    
+    
+<!-- MAP[START] -->
+<h1>infobox show[one/Multiple]</h1>
+<div id="myMap" style='width:100%;height:97%;'></div>
+<!-- MAP[END] -->
+
+
+<script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=Ajg_-bZ889xSFt6OADPCCXXRpiwb1xNdWg0bkqmjYIviZvdNXnfg0nRoiE5QV-0R
+' async defer></script>
+<script src="../js/BmapQuery.js"></script>
+<script>
+//****************************************************************************************
+// BingMaps&BmapQuery
+//****************************************************************************************
+//Init
+function GetMap(){
+
+    //------------------------------------------------------------------------
+    //1. Instance
+    //------------------------------------------------------------------------
+    const map = new Bmap("#myMap");
+
+    //------------------------------------------------------------------------
+    //2. Display Map
+    //------------------------------------------------------------------------
+    map.startMap(35.039500, 135.728500, "load", 10);
+
+    //----------------------------------------------------
+    //3. Infobox
+    //   options = new Array();
+    //   options[index] = { lat, lon, width, height, title, pinColor, description };
+    //----------------------------------------------------
+    const options = [];
+    options[0]={
+        "lat":35.440388,
+        "lon": 139.649734,
+        "title":"YOKOHAMA",
+        "pinColor":"#800080",
+        "height":300,
+        "width":320,
+        "description": 'MOTOMACHI<br><img src="../img/m.jpg" width="300">',
+        "show":false
+    };
+    options[1]={
+        "lat":35.451763,
+        "lon": 139.647751,
+        "title":"YOKOHAMA",
+        "pinColor":"#000080",
+        "height":300,
+        "width":320,
+        "description": 'OOSANBASHI<br><img src="../img/o.jpg" width="300">',
+        "show":false
+    };
+    options[2]={
+        "lat":35.442810,
+        "lon": 139.645900,
+        "title":"YOKOHAMA",
+        "pinColor":"#008000",
+        "height":300,
+        "width":320,
+        "description": 'CHUKAGAI<br><img src="../img/c.jpg" width="300">',
+        "show":false
+
+    };
+        
+         options[3]={
+        "lat":35.443890,
+        "lon": 139.650800,
+        "title":"YOKOHAMA",
+        "pinColor":"#ff1493",
+        "height":300,
+        "width":320,
+        "description": 'MARINTOWER<br><img src="../img/ma.jpg" width="300">',
+        "show":false
+    };
+        
+         options[4]={
+        "lat":35.452170,
+        "lon": 139.642900,
+        "title":"YOKOHAMA",
+        "pinColor":"#696969",
+        "height":300,
+        "width":320,
+        "description": 'AKARENGA<br><img src="../img/a.jpg" width="300">',
+        "show":false
+        
+  
+    };
+    //----------------------------------------------------
+    //4. Switch infoboxs
+    //   infoboxLayers(options, true); //true=one, false=Multiple
+    //----------------------------------------------------
+    map.infoboxLayers(options,true);
+
+}
+</script>
+
+</body>
+</html>
