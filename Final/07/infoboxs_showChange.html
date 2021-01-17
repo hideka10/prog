@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>infobox show[one/Multiple]</title>
+<style>html,body{height:100%;}body{padding:0;margin:0;}h1{padding:0;margin:0;font-size:50%;}</style>
+</head>
+<body>
+    
+    
+<!-- MAP[START] -->
+<h1>infobox show[one/Multiple]</h1>
+<div id="myMap" style='width:100%;height:97%;'></div>
+<!-- MAP[END] -->
+
+
+<script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=Ajg_-bZ889xSFt6OADPCCXXRpiwb1xNdWg0bkqmjYIviZvdNXnfg0nRoiE5QV-0R
+' async defer></script>
+<script src="./js/BmapQuery.js"></script>
+<script>
+//****************************************************************************************
+// BingMaps&BmapQuery
+//****************************************************************************************
+//Init
+function GetMap(){
+
+    //------------------------------------------------------------------------
+    //1. Instance
+    //------------------------------------------------------------------------
+    const map = new Bmap("#myMap");
+
+    //------------------------------------------------------------------------
+    //2. Display Map
+    //------------------------------------------------------------------------
+    map.startMap(47.6149, -122.1941, "load", 13);
+
+
+    const array = ["六本木", "恵比寿"];                     //Waypoints...
+map.direction("#direction", "walking", "渋谷", "表参道", array);  //walking or driving
+
+
+
+
+   
+   
+const style = {
+      pinColor:"#0000ff",
+      fillColor:"rgba(255,0,0,0.5)",
+      strokeWidth:"rgba(255,0,0,0.5)",
+};
+//以下３つのCircleを作成
+map.circleSet(35.660263,139.729553, 1000, style); //1000=1km
+map.circleSet(35.671642, 139.703308, 1000, style); //1000=1km
+map.circleSet(35.667076, 139.709030, 1000, style); //1000=1km
+map.circleSet( 35.642208, 139.713440, 1000, style); //1000=1km
+
+
+
+  
+
+
+    
+    
+
+    
+
+    //----------------------------------------------------
+    //3. Infobox
+    //   options = new Array();
+    //   options[index] = { lat, lon, width, height, title, pinColor, description };
+    //----------------------------------------------------
+    const options = [];
+    options[0]={
+        "lat":35.660263,
+        "lon": 139.729553,
+        "title":"TOKYO",
+        "pinColor":"#800080",
+        "height":300,
+        "width":320,
+        "description": '六本木ヒルズ<br><img src="../img/r.jpg" width="300">',
+        "show":false
+    };
+    options[1]={
+        "lat":35.671642,
+        "lon": 139.703308,
+        "title":"TOKYO",
+        "pinColor":"#000080",
+        "height":300,
+        "width":320,
+        "description": '竹下通り<br><img src="../img/t.jpg" width="300">',
+        "show":false
+    };
+    options[2]={
+        "lat":35.667076, 
+        "lon":139.709030,
+        "title":"TOKYO",
+        "pinColor":"#008000",
+        "height":300,
+        "width":320,
+        "description": '表参道ヒルズ<br><img src="../img/o.jpg" width="300">',
+        "show":false
+
+    };
+
+         options[3]={
+        "lat":35.659584, 
+        "lon": 139.698654,
+        "title":"TOKYO",
+        "pinColor":"#ff1493",
+        "height":300,
+        "width":320,
+        "description": '渋谷109<br><img src="../img/s.jpg" width="300">',
+        "show":false
+    };
+
+         options[4]={
+        "lat":35.642491,
+        "lon":  139.713535,
+        "title":"TOKYO",
+        "pinColor":"#696969",
+        "height":300,
+        "width":320,
+        "description": '恵比寿ガーデンプレイス<br><img src="../img/e.JPG" width="300">',
+        "show":false
+
+
+    };
+    //----------------------------------------------------
+    //4. Switch infoboxs
+    //   infoboxLayers(options, true); //true=one, false=Multiple
+    //----------------------------------------------------
+    map.infoboxLayers(options,true);
+
+}
+</script>
+
+</body>
+</html>
